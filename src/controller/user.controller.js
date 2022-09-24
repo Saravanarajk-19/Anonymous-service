@@ -9,7 +9,7 @@ exports.getAllUsers = async (req, res, next) => {
             success: true,
             data: allUsers
         });
-    } catch(err) {
+    } catch (err) {
         res.status(500).send({
             success: false,
             message: err.message || `shit happens that's code`,
@@ -28,7 +28,7 @@ exports.createUser = async (req, res, next) => {
             success: true,
             data: userDetail
         })
-    } catch(err) {
+    } catch (err) {
         res.status(500).send({
             success: false,
             message: err.message || `shit happens that's code`,
@@ -38,14 +38,13 @@ exports.createUser = async (req, res, next) => {
 
 exports.getOneUser = async (req, res, next) => {
     try {
-        console.log('req', req);
-        const { id } = req.params;
-        const userData = await User.findById({ _id: id}).populate('post');
+        const { email } = req.query;
+        const userData = await User.findOne({ email: email }).populate('post');
         res.status(200).send({
             success: true,
             data: userData
         })
-    } catch(err) {
+    } catch (err) {
         res.status(500).send({
             success: false,
             message: err.message || `shit happens that's code`,
