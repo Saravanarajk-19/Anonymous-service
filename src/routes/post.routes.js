@@ -8,5 +8,7 @@ module.exports = (app) => {
 
     router.get('/get/:id', post.getOnePost);
 
+    router.put('/update-post/:id', post.updatePostComment);
+
     app.use('/api/v1/post', router);
 }
