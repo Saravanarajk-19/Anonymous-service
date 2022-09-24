@@ -17,7 +17,13 @@ const userSchema = mongoose.Schema(
     },
     designation: {
         type: String,
-    }
+    },
+    post: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Posts"
+        }
+    ]
   },
   {
     timestamps: true,

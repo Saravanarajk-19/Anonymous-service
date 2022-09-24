@@ -6,5 +6,9 @@ module.exports = (app) => {
 
     router.post('/create-post', post.createPost);
 
+    router.get('/get/:id', post.getOnePost);
+
+    router.put('/update-post/:id', post.updatePostComment);
+
     app.use('/api/v1/post', router);
 }
